@@ -303,3 +303,28 @@ df.replace(to_replace='ZINC?', value='ZINC')
 df.replace(to_replace='ZINCE', value='ZINC')
 df.replace(to_replace='ZINE', value='ZINC')
 df.replace(to_replace='ZINE (?)', value='ZINC')
+
+md_files = pd.read_excel('mining_district_files_12202019.xlsx')
+counties = pd.read_excel('district_info_01212020.xlsx')
+
+county_list = md_files.county.str.cat(sep=", ")
+county_list_arr = county_list.split(", ")
+county_list_arr = np.unique(county_list_arr, axis=0)
+print(county_list)
+
+m_county_list1 = counties.county1.str.cat(sep=", ")
+m_county_list_arr1 = m_county_list1.split(", ")
+m_county_list_arr1 = np.unique(m_county_list_arr1, axis=0)
+print(m_county_list1)
+
+m_county_list2 = counties.county2.str.cat(sep=", ")
+m_county_list_arr2 = m_county_list2.split(", ")
+m_county_list_arr2 = np.unique(m_county_list_arr2, axis=0)
+print(m_county_list2)
+
+lower_md_county = {item.lower() for item in county_list_arr}
+lower_gen_county = {item.lower() for item in m_county_list_arr1}
+
+not_in = lower_md_county.difference(lower_gen_county)
+intersection = lower_md_county.intersection(lower_gen_county)
+print(not_in)
