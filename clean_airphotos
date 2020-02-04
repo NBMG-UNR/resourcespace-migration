@@ -1,0 +1,18 @@
+####
+# Title: clean_airphotos.py
+# Purpose: Combine all air photos excel files into one
+# Author:
+####
+
+# include
+import pandas as pd
+import numpy as np
+
+# Read all of them in first
+photos1 = pd.read_excel('G:\\datasets\\air_photos\\air_photos_index_2.xlsx')
+photos2 = pd.read_excel('G:\\datasets\\air_photos\\AERIALPH.xlsx')
+# Read in all of the others listed in the github ticket here
+
+# For each of the individual spreadsheets, remove unneeded columns and rename the remaining columns so that each
+# of them only have hte following columns:
+# index_id, photo_id, photo_name, flight_date, source, county, scale, project, dvd_id, latitude, longitude, altitude
