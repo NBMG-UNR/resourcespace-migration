@@ -16,3 +16,217 @@ photos2 = pd.read_excel('G:\\datasets\\air_photos\\AERIALPH.xlsx')
 # For each of the individual spreadsheets, remove unneeded columns and rename the remaining columns so that each
 # of them only have hte following columns:
 # index_id, photo_id, photo_name, flight_date, source, county, scale, project, dvd_id, latitude, longitude, altitude
+
+
+
+
+#active code
+import pandas as pd
+import numpy as np
+
+photos1 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /NVAerials2.xlsx')
+photos2 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /NVAerials3.xlsx')
+photos3 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /NVAerials4.xlsx')
+photos4 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /NVAerials7.xlsx')
+photos5 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /AerialPhotoData21.xlsx')
+photos6 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /AERIALPH.xlsx')
+photos7 = pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Aerial photos /aerial_photos_index_2.xlsx')
+
+df1=pd.DataFrame(photos1)
+df1=df1.rename(columns={'INDEXID':'index_id','PHOTO_ID':'photo_id', 'IMAGENAME':'photo_name','IMAGEDATE':'flight_date','IMAGESOURC':'source','DVDID':'dvd_id'})
+df1=df1.drop(["IMAGEPRINT"], axis=1)
+df1=df1.drop(["IMAGEINDEX"],axis=1)
+df1=df1.drop(["IMAGEINDEX.1"],axis=1)
+df1=df1.drop( ["IMAGEDIR"],axis=1)
+df1=df1.drop(["INPUTTIMES"],axis=1)
+df1=df1.drop(["SOURCESHAP"],axis=1)
+df1=df1.drop(["IMAGEDPI"],axis=1)
+df1=df1.drop(["ISJP2"],axis=1)
+df1=df1.drop(["INVALID"],axis=1)
+df1=df1.drop(["ISEXPORTED"], axis=1)
+df1=df1.drop(["INPUTCOMPU"],axis=1)             
+df1=df1.drop(["DVDRECORDE"],axis=1)
+df1=df1.drop(["IS16BIT"],axis=1)
+df1=df1.drop(["HASWORLDFI"], axis=1)
+df1['latitude'] = ""
+df1['longitude'] = ""
+df1['county'] = ""
+df1['scale']=""
+df1['project']=""
+df1['altitude']=""
+
+df2=pd.DataFrame(photos2)
+df2['latitude'] = ""
+df2['longitude'] = ""
+df2['county'] = ""
+df2['project']=""
+df2['altitude']=""
+df2=df2.drop(["ImagePrintScale"], axis=1)
+df2=df2.drop(["ImageIndexSheet"],axis=1)
+df2=df2.drop(["ImageIndexType"],axis=1)
+df2=df2.drop( ["ImageDir"],axis=1)
+df2=df2.drop(["Ymin"],axis=1)
+df2=df2.drop(["Xmin"],axis=1)
+df2=df2.drop(["Xmax"],axis=1)
+df2=df2.drop(["Ymax"],axis=1)
+df2=df2.drop(["is16bit"],axis=1)
+df2=df2.drop(["centerX"], axis=1)
+df2=df2.drop(["centerY"],axis=1)             
+df2=df2.drop(["sourceShape"],axis=1)
+df2=df2.drop(["isJP2"],axis=1)
+df2=df2.drop(["invalid"], axis=1)
+df2=df2.drop(["MaxLat"], axis=1)
+df2=df2.drop(["MinLat"],axis=1)
+df2=df2.drop(["MaxLon"],axis=1)
+df2=df2.drop( ["MinLon"],axis=1)
+df2=df2.drop(["CenterLat"],axis=1)
+df2=df2.drop(["CenterLon"],axis=1)
+df2=df2.drop(["isExported"],axis=1)
+df2=df2.drop(["inputComputer"],axis=1)
+df2=df2.drop(["hasWorldFile"],axis=1)
+df2=df2.drop(["DVDRecordedDate"], axis=1)
+df2=df2.drop(["ImageIndex"], axis=1)
+df2=df2.drop(["InputTimeStamp"], axis=1)
+df2=df2.drop(["ImageDpi"], axis=1)
+df2=df2.rename(columns={'IndexID':'index_id','Photo_ID':'photo_id', 'ImageName':'photo_name','ImageDate':'flight_date','ImageSource':'source','DVDID':'dvd_id','ImageScale':'scale'})
+
+df3=pd.DataFrame(photos3)
+df3=df3.drop(["ImagePrintScale"], axis=1)
+df3=df3.drop(["ImageIndexSheet"],axis=1)
+df3=df3.drop(["ImageIndexType"],axis=1)
+df3=df3.drop( ["ImageDir"],axis=1)
+df3=df3.drop(["Ymin"],axis=1)
+df3=df3.drop(["Xmin"],axis=1)
+df3=df3.drop(["Xmax"],axis=1)
+df3=df3.drop(["Ymax"],axis=1)
+df3=df3.drop(["is16bit"],axis=1)
+df3=df3.drop(["centerX"], axis=1)
+df3=df3.drop(["centerY"],axis=1)             
+df3=df3.drop(["sourceShape"],axis=1)
+df3=df3.drop(["isJP2"],axis=1)
+df3=df3.drop(["invalid"], axis=1)
+df3=df3.drop(["MaxLat"], axis=1)
+df3=df3.drop(["MinLat"],axis=1)
+df3=df3.drop(["MaxLon"],axis=1)
+df3=df3.drop( ["MinLon"],axis=1)
+df3=df3.drop(["CenterLat"],axis=1)
+df3=df3.drop(["CenterLon"],axis=1)
+df3=df3.drop(["isExported"],axis=1)
+df3=df3.drop(["inputComputer"],axis=1)
+df3=df3.drop(["hasWorldFile"],axis=1)
+df3=df3.drop(["DVDRecordedDate"], axis=1)
+df3=df3.drop(["ImageIndex"], axis=1)
+df3=df3.drop(["InputTimeStamp"], axis=1)
+df3=df3.drop(["ImageDpi"], axis=1)
+df3=df3.rename(columns={'IndexID':'index_id','Photo_ID':'photo_id', 'ImageName':'photo_name','ImageDate':'flight_date','ImageScale':'scale','DVDID':'dvd_id','ImageSource':'source'})
+df3['county'] = ""
+df3['project']=""
+df3['altitude']=""
+df3 = df3.replace(0, "")
+#There were max and min latitudes and longitudes so I just averaged them out in the spreadsheet and used those values
+
+df4=pd.DataFrame(photos4)
+df4['latitude'] = ""
+df4['longitude'] = ""
+df4['county'] = ""
+df4['project']=""
+df4['altitude']=""
+df4=df4.drop(["ImagePrintScale"], axis=1)
+df4=df4.drop(["ImageIndexSheet"], axis=1)
+df4=df4.drop(["ImageIndexType"], axis=1)
+df4=df4.drop(["ImageDir"], axis=1)
+df4=df4.drop(["InputTimeStamp"], axis=1)
+df4=df4.drop(["is16bit"], axis=1)
+df4=df4.drop(["sourceShape"], axis=1)
+df4=df4.drop(["ImageDpi"], axis=1)
+df4=df4.drop(["isJP2"], axis=1)
+df4=df4.drop(["invalid"], axis=1)
+df4=df4.drop(["isExported"], axis=1)
+df4=df4.drop(["inputComputer"], axis=1)
+df4=df4.drop(["hasWorldFile"], axis=1)
+df4=df4.drop(["DVDRecordedDate"], axis=1)
+df4=df4.drop(["ImageIndex"], axis=1)
+df4=df4.rename(columns={'IndexID':'index_id','Photo_ID':'photo_id', 'ImageName':'photo_name','ImageDate':'flight_date','ImageScale':'scale','DVDID':'dvd_id','ImageSource':'source'})
+
+df5=pd.DataFrame(photos5)
+df5['latitude'] = ""
+df5['longitude'] = ""
+df5['county'] = ""
+df5['project']=""
+df5['altitude']=""
+df5=df5.drop(["ImagePrintScale"], axis=1)
+df5=df5.drop(["ImageIndexSheet"],axis=1)
+df5=df5.drop(["ImageIndexType"],axis=1)
+df5=df5.drop( ["ImageDir"],axis=1)
+df5=df5.drop(["is16bit"],axis=1)            
+df5=df5.drop(["sourceShape"],axis=1)
+df5=df5.drop(["isJP2"],axis=1)
+df5=df5.drop(["invalid"], axis=1)
+df5=df5.drop(["isExported"],axis=1)
+df5=df5.drop(["inputComputer"],axis=1)
+df5=df5.drop(["hasWorldFile"],axis=1)
+df5=df5.drop(["DVDRecordedDate"], axis=1)
+df5=df5.drop(["ImageIndex"], axis=1)
+df5=df5.drop(["InputTimeStamp"], axis=1)
+df5=df5.drop(["ImageDpi"], axis=1)
+df5=df5.rename(columns={'IndexID':'index_id','Photo_ID':'photo_id', 'ImageName':'photo_name','ImageDate':'flight_date','ImageScale':'scale','DVDID':'dvd_id','ImageSource':'source'})
+
+df6=pd.DataFrame(photos6)
+df6=df6.rename(columns={'INDEXID':'index_id','PHOTO_ID':'photo_id', 'IMGNAME':'photo_name','IMGDATE':'flight_date','IMGSCALE':'scale','DVDID':'dvd_id','IMSOURCE':'source'})
+df6=df6.drop(["P_SCALE"],axis=1)
+df6=df6.drop(["IDXSHEET"], axis=1)
+df6=df6.drop(["IDXTYPE"], axis=1)
+df6=df6.drop(["IMGDIR"], axis=1)
+df6=df6.drop(["TMPSTAMP"], axis=1)
+df6=df6.drop(["IS16BIT"], axis=1)
+df6=df6.drop(["IMAGEDPI"], axis=1)
+df6=df6.drop(["ISJP2"], axis=1)
+df6=df6.drop(["INVAL"], axis=1)
+df6=df6.drop(["ISEXP"], axis=1)
+df6=df6.drop(["IN_COMP"], axis=1)
+df6=df6.drop(["WRLDFILE"], axis=1)
+df6=df6.drop(["DVDDATE"], axis=1)
+df6=df6.drop(["IMGINDEX"], axis=1)
+df6['latitude'] = ""
+df6['longitude'] = ""
+df6['county'] = ""
+df6['project']=""
+df6['altitude']=""
+
+df7=pd.DataFrame(photos7)
+df7=df7.drop(["ImagePrintScale"], axis=1)
+df7=df7.drop(["ImageIndexSheet"],axis=1)
+df7=df7.drop(["ImageIndexType"],axis=1)
+df7=df7.drop( ["ImageDir"],axis=1)
+df7=df7.drop(["Ymin"],axis=1)
+df7=df7.drop(["Xmin"],axis=1)
+df7=df7.drop(["Xmax"],axis=1)
+df7=df7.drop(["Ymax"],axis=1)
+df7=df7.drop(["is16bit"],axis=1)
+df7=df7.drop(["centerX"], axis=1)
+df7=df7.drop(["centerY"],axis=1)             
+df7=df7.drop(["sourceShape"],axis=1)
+df7=df7.drop(["isJP2"],axis=1)
+df7=df7.drop(["invalid"], axis=1)
+df7=df7.drop(["MaxLat"], axis=1)
+df7=df7.drop(["MinLat"],axis=1)
+df7=df7.drop(["MaxLon"],axis=1)
+df7=df7.drop( ["MinLon"],axis=1)
+df7=df7.drop(["CenterLat"],axis=1)
+df7=df7.drop(["CenterLon"],axis=1)
+df7=df7.drop(["isExported"],axis=1)
+df7=df7.drop(["inputComputer"],axis=1)
+df7=df7.drop(["hasWorldFile"],axis=1)
+df7=df7.drop(["DVDRecordedDate"], axis=1)
+df7=df7.drop(["ImageIndex"], axis=1)
+df7=df7.drop(["InputTimeStamp"], axis=1)
+df7=df7.drop(["ImageDpi"], axis=1)
+df7=df7.rename(columns={'IndexID':'index_id','Photo_ID':'photo_id', 'ImageName':'photo_name','ImageDate':'flight_date','ImageScale':'scale','DVDID':'dvd_id','ImageSource':'source'})
+df7['county'] = ""
+df7['project']=""
+df7['altitude']=""
+df7['latitude'] = ""
+df7['longitude'] = ""
+
+#merged all dataframes into df1, however, the order of the sheet is all mixed up and I cant find a way to fix it
+df1.append([df1,df2,df3,df4,df5,df6,df7], sort=True)
