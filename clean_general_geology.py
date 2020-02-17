@@ -15,10 +15,10 @@ for index, row in df.iterrows():
 df=df.rename(columns={'AREA':'index_location','TITLE':'title','DATE':'date','NOTES':'notes','UTMN_NAD27':'latitude','UTME_NAD27':'longitude','ITEM':'item','AUTHOR':'author','PAGES':'pages'})
 
 #remove "NUM" column
-df = df.drop(["longitude"], axis=1)
-df = df.drop(["latitude"], axis=1)
-df = df.drop(["NUM"],axis=1)
 
+df = df.drop(["NUM"], axis=1)
+df1 = df1.drop(["longitude"], axis=1)
+df1 = df1.drop(["latitude"], axis=1)
 
 #reorder columns to put 'id' first
 cols = df.columns.tolist()
@@ -27,12 +27,15 @@ df = df.reindex(columns= cols)
 
 coordinates= pd.read_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/Converted Coordinates.xlsx')
 
-df1=pd.DataFrame(coordinates)
+df2=pd.DataFrame(coordinates)
 
-df1 = df1.drop(["UTME NAD27"], axis=1)
-df1 = df1.drop(["UTMN NAD27"], axis=1)
+df2 = df2.drop(["UTME NAD27"], axis=1)
+df2 = df2.drop(["UTMN NAD27"], axis=1)
 
-final_spreadsheet = [df, df1]
+df = [df1, df2]
 
-#for some reason I have a syntax error at "sort= True"
-final = (pd.concat(final_spreadsheet), sort= True)
+done= (pd.concat(df, axis=1, ignore_index=False))
+
+#for some reason there's an error "AttributeError: 'list' object has no attribute 'to_excel'"
+df.to_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/general_geology02112020.xlsx', index = None, header=True)
+
