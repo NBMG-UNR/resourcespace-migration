@@ -36,6 +36,4 @@ df = [df1, df2]
 
 done= (pd.concat(df, axis=1, ignore_index=False))
 
-#for some reason there's an error "AttributeError: 'list' object has no attribute 'to_excel'"
-df.to_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/general_geology02112020.xlsx', index = None, header=True)
-
+done.to_excel('/Users/LoganWeeks/Desktop/NBMG work stuff/NBMG Coding /general_geology_03032020.xlsx')
