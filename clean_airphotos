@@ -228,5 +228,24 @@ df7['altitude']=""
 df7['latitude'] = ""
 df7['longitude'] = ""
 
-#merged all dataframes into df1, however, the order of the sheet is all mixed up and I cant find a way to fix it
-df1.append([df1,df2,df3,df4,df5,df6,df7], sort=True)
+
+df=pd.concat([df1,df2,df3,df4,df5,df6,df7], join='outer', ignore_index=False, keys=None, levels=None, names=None, verify_integrity=False, copy=True, sort=False)
+
+cols = df.columns.tolist()
+cols
+
+cols.insert(0, cols.pop(cols.index('index_id')))
+cols.insert(1, cols.pop(cols.index('photo_id')))
+cols.insert(2, cols.pop(cols.index('photo_name')))
+cols.insert(3, cols.pop(cols.index('flight_date')))
+cols.insert(4, cols.pop(cols.index('scale')))
+cols.insert(5, cols.pop(cols.index('dvd_id')))
+cols.insert(6, cols.pop(cols.index('source')))
+cols.insert(7, cols.pop(cols.index('project')))
+cols.insert(8, cols.pop(cols.index('latitude')))
+cols.insert(9, cols.pop(cols.index('longitude')))
+cols.insert(10, cols.pop(cols.index('county')))
+cols.insert(11, cols.pop(cols.index('altitude')))
+cols
+
+df.to_excel(r'/Users/LoganWeeks/Desktop/NBMG work stuff/updated_aerial_photos_02132020.xlsx', index = None, header=True)
