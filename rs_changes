@@ -1,0 +1,43 @@
+Update to 9.5 on 4/7/2021
+Changes: 
+slideshow_big.css
+#HomeSiteText {
+max-width: 60%
+}
+
+global.css
+.RecordPanel .itemNarrow{
+width: 30%
+}
+
+
+config.php
+$show_anonymous_login_panel=false;
+$disable_geocoding=true;
+$geo_locate_collection = false;
+$email_sharing=false;
+$list_display_fields=array(8,128,110);
+
+
+
+Update to 9.4 on 2/17/2021
+
+Roadmap: Version 9.5 early March 2021
+
+
+In config.php, update the following: 
+
+$list_search_results_title_trim=25;  change 25 to 60
+
+uncomment the following line (around line 979)
+$anonymous_login="guest"
+
+add the following 4 lines
+$custom_top_nav[0]["title"]="NBMG Website";
+$custom_top_nav[0]["link"]="https://nbmg.unr.edu/";
+
+$custom_top_nav[1]["title"]="Contact Us";
+$custom_top_nav[1]["link"]="contact.php";
+
+change the following switch from false to true $browse_bar:true
+$simple_search_date=false;
